@@ -13,9 +13,21 @@ public class IOCDemoConfiguration {
     }
 
     @Bean
+    public GreetingProvider computerProvider(){
+        return new ComputerType();
+    }
+
+    @Bean
     public GreetingRenderer renderer() {
         GreetingRenderer renderer = new StandardOutGreetingRenderer();
         renderer.setGreetingProvider(provider());
         return renderer;
+    }
+
+    @Bean
+    public GreetingRenderer rendererProvider(){
+        GreetingRenderer renderer2 = new StandardOutGreetingRenderer();
+        renderer2.setGreetingProvider(computerProvider());
+        return renderer2;
     }
 }
