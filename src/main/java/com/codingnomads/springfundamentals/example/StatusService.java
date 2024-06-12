@@ -13,4 +13,8 @@ public class StatusService {
             return "springfundamentals/goodbye";
         }
     }
+
+    public String processSuccess(){
+        return "springfundamentals/success";
+    }
 }
