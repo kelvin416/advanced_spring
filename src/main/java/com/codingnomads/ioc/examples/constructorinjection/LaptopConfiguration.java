@@ -18,4 +18,9 @@ public class LaptopConfiguration {
     public OS os() {
         return new OS("ubuntu");
     }
+
+    @Bean
+    public KeyBoardType keyBoardType(){
+        return new KeyBoardType(250, "Butterfly Keyboard");
+    }
 }
