@@ -9,6 +9,8 @@ public class Laptop {
     private Processor processor;
     private OS os;
 
+    private Screen screen;
+
     @Autowired
     public void setProcessor(Processor processor) {
         this.processor = processor;
@@ -19,7 +21,13 @@ public class Laptop {
         this.os = os;
     }
 
+    @Autowired
+    public void setScreen(Screen screen){
+        this.screen = screen;
+    }
+
     public String printLaptopConfiguration() {
-        return "processor: " + processor.getCore() + " core " + processor.getName() + "\nOS: " + os.getName();
+        return "processor: " + processor.getCore() + " core " + processor.getName() + "\nOS: " + os.getName()
+                + "\nname: " + screen.getName() + " type: " + screen.getType();
     }
 }

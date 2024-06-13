@@ -17,4 +17,9 @@ public class LaptopConfiguration {
     public OS os() {
         return new OS("ubuntu");
     }
+
+    @Bean
+    public Screen screen(){
+        return new Screen("HP", "LED");
+    }
 }
