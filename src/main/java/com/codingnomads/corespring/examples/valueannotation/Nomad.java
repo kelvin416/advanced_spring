@@ -13,7 +13,8 @@ public class Nomad {
 
     private Integer age;
 
-    public Nomad(@Value("${nomad.name}") String name, @Value("${nomad.age}") Integer age) {
+    public Nomad(@Value("${nomad.name}") String name,
+                 @Value("${nomad.age}") Integer age) {
         this.name = name;
         this.age = age;
     }
@@ -32,6 +33,15 @@ public class Nomad {
 
     @Value("${nomad.workingDays}")
     private List<String> workingDays;
+
+    @Value("${nomad.language}")
+    private String language;
+
+    @Value("${nomad.database}")
+    private String database;
+
+    @Value("${nomad.study-hours}")
+    private Integer studyHours;
 
     @Value("#{${database.values}}")
     private Map<String, String> databaseValues;
@@ -59,5 +69,9 @@ public class Nomad {
 
     public Map<String, String> getDatabaseValues() {
         return databaseValues;
+    }
+
+    public String getLanguage(){
+        return language.concat(" ").concat(database).concat(" ".concat(studyHours.toString()));
     }
 }
