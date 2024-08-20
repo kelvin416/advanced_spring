@@ -24,6 +24,22 @@ public class ScopeAnnotationDemo {
         System.out.println(prototypeBean1.hashCode());
         System.out.println(prototypeBean2.hashCode());
         System.out.println();
+
+        final Java101 java1011 = ctx.getBean(Java101.class);
+        final Java101 java1012 = ctx.getBean(Java101.class);
+
+        System.out.println("----Java 101 Hashcode SingletonBean");
+        System.out.println(java1011.hashCode());
+        System.out.println(java1012.hashCode());
+        System.out.println();
+
+        final Java102 java1021 = ctx.getBean(Java102.class);
+        final Java102 java1022 = ctx.getBean(Java102.class);
+
+        System.out.println("----Java 102 Hashcode SingletonBean---");
+        System.out.println(java1021.hashCode());
+        System.out.println(java1022.hashCode());
+        System.out.println();
         ctx.close();
     }
 }
