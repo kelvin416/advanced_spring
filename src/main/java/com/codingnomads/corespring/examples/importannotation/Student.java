@@ -1,15 +1,13 @@
-/* CodingNomads (C)2024 */
 package com.codingnomads.corespring.examples.importannotation;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 
 @Configuration
-@Import(Student.class)
-public class ImportAnnotationConfig {
+public class Student {
+
     @Bean
-    public Framework framework() {
-        return new Framework();
+    SpringDeveloper springDeveloper(){
+        return new SpringDeveloper();
     }
 }
