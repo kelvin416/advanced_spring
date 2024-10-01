@@ -1,24 +1,24 @@
-/* CodingNomads (C)2024 */
 package com.codingnomads.springdata.example.ddl.onetoone.unidirectional;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "tyre type")
 @NoArgsConstructor
-@Getter
 @Setter
-public class Car {
+@Getter
+public class TyreType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(nullable = false)
-    private String brand;
+    private String tyreBrand;
 
-    @Column(name = "horsepower")
-    private String horsepower;
-
+    @OneToOne
+    private Car car;
 }
