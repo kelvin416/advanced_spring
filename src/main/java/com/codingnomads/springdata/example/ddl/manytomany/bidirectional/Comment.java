@@ -23,6 +23,6 @@ public class Comment {
     private String content;
 
     //setting up a many to many relationship with the Like class
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Like> likes;
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    private Set<Like> likes;
 }

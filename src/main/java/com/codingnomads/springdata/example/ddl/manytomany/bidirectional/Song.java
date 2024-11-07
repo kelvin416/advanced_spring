@@ -11,11 +11,15 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Like {
+public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(nullable = false)
+    private String name;
 
+    @ManyToMany(mappedBy = "songs")
+    private Set<Artist> artists;
 }
