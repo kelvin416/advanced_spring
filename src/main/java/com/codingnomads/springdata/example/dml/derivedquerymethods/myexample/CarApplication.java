@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 import java.util.List;
 
@@ -55,6 +57,16 @@ public class CarApplication implements CommandLineRunner {
         System.out.println("\n-----------findByTopSpeed-----------");
         Car cars6 = carRepo.findFirstByTopSpeedGreaterThan(220);
         System.out.println(cars6.toString());
+
+        PageRequest pageRequest = PageRequest.of(0, 4);
+
+        System.out.println("---------FIRST PAGE---------");
+        Page<Car> page = carRepo.findAll(pageRequest);
+        page.getContent().forEach(System.out::println);
+
+        System.out.println("---------Second PAGE---------");
+        page = carRepo.findAll(pageRequest.next());
+        page.getContent().forEach(System.out::println);
 
         carRepo.deleteAllInBatch();
     }
