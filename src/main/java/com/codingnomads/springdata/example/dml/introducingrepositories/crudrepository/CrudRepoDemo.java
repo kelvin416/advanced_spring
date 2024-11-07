@@ -6,6 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
+
 @SpringBootApplication
 public class CrudRepoDemo implements CommandLineRunner {
 
@@ -25,9 +27,15 @@ public class CrudRepoDemo implements CommandLineRunner {
         User user2 =
                 User.builder().firstName("Joanne").lastName("Joanna").age(36).build();
 
+        User user3 = User.builder().firstName("Jasmine").lastName("Tea").age(78).build();
+
+        User user4 = User.builder().firstName("John").lastName("Maasai").age(18).build();
+
         // save user and assign what is returned to the user variable.
         user = userRepo.save(user);
         user2 = userRepo.save(user2);
+
+        userRepo.saveAll(List.of(user, user2, user3, user4));
 
         Iterable<User> users = userRepo.findAll();
 
