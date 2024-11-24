@@ -1,9 +1,7 @@
 /* CodingNomads (C)2024 */
 package com.codingnomads.springdata.example.dml.lifecyclecallback;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,5 +17,20 @@ public class PrintEntity {
     private Long id;
 
     // write your methods here
+
+    @PostLoad
+    private void successRate(){
+        System.out.println("The Success Rate was 80%");
+    }
+
+    @PrePersist
+    private void timeSpentProcessing(){
+        System.out.println("Time Spent processing was 50s");
+    }
+
+    @PreUpdate
+    private void errorsCaught(){
+        System.out.println("Errors caught and fixed: 3");
+    }
 
 }
