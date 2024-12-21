@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
+//This is a POJO
 @Data
 @NoArgsConstructor
 @ToString

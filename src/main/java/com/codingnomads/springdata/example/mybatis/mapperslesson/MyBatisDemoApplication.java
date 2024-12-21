@@ -40,16 +40,33 @@ public class MyBatisDemoApplication {
             song2.setArtist_name("Gus Dapperton");
             song2.setSong_length(279);
 
+//            Song song4 = new Song();
+//            song1.setName("Colorado, Kenya");
+//            song1.setAlbum_name("Bon Iver");
+//            song1.setArtist_name("Bon Iver");
+//            song1.setSong_length(200);
+
             songMapper.insertNewSong(song1);
             songMapper.insertNewSong(song2);
+//            songMapper.insertNewSong(song4);
 
             Song song3 = songMapper.getSongById(1L);
 
             List<Song> longSongs = songMapper.getSongsWithLengthGreaterThan(250);
-
             longSongs.forEach(System.out::println);
+//
+//            List<Song> albumSongs = songMapper.getSongsByAlbumName("Orca");
+//            albumSongs.forEach(System.out::println);
+
 
             System.out.println(song3.toString());
+
+            songMapper.deleteSongById(1L);
+            songMapper.deleteSongById(2L);
+            songMapper.deleteSongById(3L);
+            songMapper.deleteSongById(4L);
+            songMapper.deleteSongById(5L);
+            songMapper.deleteSongById(6L);
         };
     }
 }
